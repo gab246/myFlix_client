@@ -59,7 +59,7 @@ export const MainView = () => {
   if (selectedMovie){
     return (
       <>
-    <button onClick={() => { setUser(null); setToken(null); }}>Logout</button>
+    <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
     <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
     </>
   );
