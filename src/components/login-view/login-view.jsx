@@ -13,17 +13,27 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch('https://desolate-sierra-27780.herokuapp.com/login.json', {
+    fetch('YOUR_API_URL/login', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(data)
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
+    }).then((response) => response.json())
+    .then((data) => {
+      console.log('login response: ', data);
+      if (data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('toke', data.token);
+        onLoggedIn(data.user, data.token)
       } else {
-        alert('Login failed');
+        alert('no such user');
       }
     })
-  };
+    .catch((e) => {
+      alert('something went wrong');
+    });
+  }
 
   return ( 
     <form onSubmit={handleSubmit}>
