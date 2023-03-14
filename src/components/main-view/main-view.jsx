@@ -7,7 +7,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
-
+ 
   useEffect(() => {
     fetch('https://desolate-sierra-27780.herokuapp.com/movies')
       .then((response) => response.json())
@@ -41,7 +41,10 @@ export const MainView = () => {
 
   if (selectedMovie){
     return (
+      <>
+    <button onClick={() => { setUser(null); }}>Logout</button>
     <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+    </>
   );
   }
 
