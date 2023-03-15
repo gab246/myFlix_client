@@ -9,8 +9,8 @@ export const MainView = () => {
   const storedToken = localStorage.getItem('token');
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
  
   useEffect(() => {
     if (!token) {
@@ -20,8 +20,8 @@ export const MainView = () => {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((movies) => {
+        console.log(movies);
   
     const moviesFromApi = data.map((movie) => {
       return {
@@ -65,8 +65,8 @@ export const MainView = () => {
       <>
     <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
     <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    </>
-  );
+      </>
+    );
   }
 
   if (movies.length === 0) {
