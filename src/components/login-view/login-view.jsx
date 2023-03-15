@@ -13,7 +13,7 @@ export const LoginView = ({ onLoggedIn }) => {
       secret: password
     };
 
-    fetch('YOUR_API_URL/login', {
+    fetch('https://desolate-sierra-27780.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ export const LoginView = ({ onLoggedIn }) => {
       console.log('login response: ', data);
       if (data.user) {
         localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('toke', data.token);
+        localStorage.setItem('token', data.token);
         onLoggedIn(data.user, data.token)
       } else {
         alert('no such user');
