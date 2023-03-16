@@ -71,8 +71,8 @@ export const MainView = () => {
 
   if (movies.length === 0) {
     return <div>The list is empty</div>;
-  }
-  return (
+  } else {
+    return (
     <div>
       {movies.map((movie) => (
         <MovieCard
@@ -85,4 +85,5 @@ export const MainView = () => {
       ))}
     </div>
   );
+  }
 }
