@@ -33,7 +33,7 @@ export const SignupView = () => {
   };
 
   return (
-    <form onsubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <label>
         Username:
         <input
@@ -58,6 +58,7 @@ export const SignupView = () => {
           />
       </label>
       <label>
+        Birthday:
         <input
           type='date'
           value={birthday}
@@ -68,3 +69,4 @@ export const SignupView = () => {
     </form>
   );
 };
+
