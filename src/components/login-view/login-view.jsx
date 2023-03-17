@@ -25,13 +25,13 @@ export const LoginView = ({ onLoggedIn }) => {
       if (data.user) {
         localStorage.setItem('user', JSON.stringify(data.user));
         localStorage.setItem('token', data.token);
-        onLoggedIn(data.user, data.token)
+        onLoggedIn(data.user, data.token);
       } else {
-        alert('no such user');
+        alert('This user does not exist');
       }
     })
     .catch((e) => {
-      alert('something went wrong');
+      alert('Something went wrong');
     });
   }
 
