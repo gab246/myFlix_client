@@ -10,8 +10,8 @@ export const LoginView = ({ onLoggedIn }) => {
 
     const data = {
       access: username,
-      secret: password
-    };
+      secret: password 
+    }; 
 
     fetch('https://desolate-sierra-27780.herokuapp.com/login', {
       method: 'POST',
