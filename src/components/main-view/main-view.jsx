@@ -70,10 +70,23 @@ export const MainView = () => {
   }
 
   if (movies.length === 0) {
-    return <div>The list is empty</div>;
-  } else {
     return (
+      <>
+      <button onClick={() => {setUser(null); setToken(null); localStorage.clear();
+      }}
+        > Logout
+      </button>
+      <div>Your list is empty!</div>
+    </>
+    );
+  };
+
+  return (
     <div>
+    <button onClick={() => {setUser(null); setToken(null); localStorage.clear();
+    }}
+      > Logout
+    </button>
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}
@@ -85,5 +98,4 @@ export const MainView = () => {
       ))}
     </div>
   );
-  }
-}
+  };
