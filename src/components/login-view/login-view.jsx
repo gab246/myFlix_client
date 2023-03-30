@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 export const LoginView = ({ onLoggedIn }) => {
@@ -35,17 +37,46 @@ export const LoginView = ({ onLoggedIn }) => {
     });
   }
 
-  return ( 
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} required minLength='6'/>
-      </label>
-      <label>
-        Password:
-        <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required minLength='6' />
-      </label>
-      <button type='submit'>Submit</button>
-    </form>
+return ( 
+  <Form onSubmit={handleSubmit}>
+    <Form.Group contolId='formUsername'>
+      <Form.Label>Username: </Form.Label>
+    <Form.Control 
+      type='text'
+        value={username} 
+          onChange={(e) => setUsername(e.target.value)} 
+            required 
+              minLength= '6'
+          />
+    </Form.Group>
+
+      <Form.Group controlId='formPassword'>
+        <Form.Label>Password: </Form.Label>
+          <Form.Control 
+            type='password'
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength='6'
+          />
+
+    </Form.Group>
+      <Button variant='primary' type='submit'> LOGIN!
+      </Button>
+    </Form>
   );
-};
+  };
+//   return ( 
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         Username:
+//         <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} required minLength='6'/>
+//       </label>
+//       <label>
+//         Password:
+//         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required minLength='6' />
+//       </label>
+//       <button type='submit'>Submit</button>
+//     </form>
+//   );
+// };
