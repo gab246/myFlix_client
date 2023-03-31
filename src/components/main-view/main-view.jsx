@@ -37,8 +37,8 @@ export const MainView = () => {
           },
         director: {
           name: movie.Director.Name,
-          birth: movie.Director.Birth,
-          bio: movie.Director.Bio
+          bio: movie.Director.Bio,
+          birth: movie.Director.Birth
           }
             
           };
@@ -68,6 +68,7 @@ export const MainView = () => {
       ) : (
         <>
           {movies.map((movie) => (
+            <Col className='mb-4' key={movie.id} md={3}>
             <MovieCard
               key={movie.id}
               movie={movie}
@@ -75,6 +76,7 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
+            </Col>
           ))}
         </>
       )}
