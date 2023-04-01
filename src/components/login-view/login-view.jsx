@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react'
-import { Button, Form, Card, Row, Col } from 'react-bootstrap';
+import { Button, Form, Card } from 'react-bootstrap';
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('');
@@ -36,13 +36,11 @@ export const LoginView = ({ onLoggedIn }) => {
   }
 
 return ( 
-<Row className='justify-content-md-center mt-5'>
-  <Col md={5}>
   <Card className='mt-5 mb-5'>
     <Card.Body>
       <Card.Title>LOGIN</Card.Title>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId='formUsername' className='mt-3 mb-3'>
+      <Form onSubmit={handleSubmit} className='mt-4 mb-4'>
+        <Form.Group controlId='formUsername' className='mt-4 mb-4'>
           <Form.Label>Username: </Form.Label>
           <Form.Control 
             type='text'
@@ -54,7 +52,7 @@ return (
           />
     </Form.Group>
 
-        <Form.Group controlId='formPassword' className='mt-3 mb-3'>
+        <Form.Group controlId='formPassword' className='mt-4 mb-4'>
           <Form.Label>Password: </Form.Label>
           <Form.Control 
             type='password'
@@ -66,11 +64,9 @@ return (
           />
 
     </Form.Group>
-        <Button variant='primary' type='submit' className='mt-3 mb-3'> LOGIN!</Button>
+        <Button variant='primary' type='submit' className='mt-4'> LOGIN!</Button>
     </Form>
     </Card.Body>
   </Card>
-  </Col>
-  </Row>
   );
   };
