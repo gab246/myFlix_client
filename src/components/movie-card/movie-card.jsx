@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import './movie-card.scss';
+
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
-    <div 
-      onClick={() => {
-        onMovieClick(movie);
-    }}
-    >
-      {movie.title}
-    </div>
+    <Card className='h-100' onClick={() => onMovieClick(movie)} >
+      <Card.Img variant='top' src={movie.image} />
+        <Card.Body>
+          <Card.Title>{movie.title}</Card.Title>
+        </Card.Body>
+    </Card>
   );
 };
 
@@ -22,9 +24,9 @@ MovieCard.propTypes = {
     }).isRequired,
     director: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      birth: PropTypes.number.isRequired,
       bio: PropTypes.string.isRequired,
+      birth: PropTypes.string.isRequired,
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
-  }).isRequired,
+    onMovieClick: PropTypes.func
+  })
   };
