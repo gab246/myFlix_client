@@ -55,7 +55,7 @@ export const SignupView = () => {
           <Form.Group controlId='formPassword' className='mt-3 mb-3'>
             <Form.Label>Password:</Form.Label>
             <Form.Control 
-              type='text'
+              type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
