@@ -51,7 +51,7 @@ export const MainView = () => {
   return (
     <Row className='justify-content-md-center mt-3'> 
       {!user ? (
-        <Col>
+        <Col md={5}>
           <LoginView onLoggedIn={(user) => setUser(user)} />
           <SignupView />
         </Col>
@@ -82,3 +82,4 @@ export const MainView = () => {
     </Row>
 );
 };
+
