@@ -2,6 +2,10 @@
   color: #00f;
 }
 
+.card {
+  cursor: pointer;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
