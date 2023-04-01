@@ -49,11 +49,10 @@ export const MainView = () => {
   }, [token]);
 
   return (
-    <Row className="justify-content-md-center"> 
+    <Row className='justify-content-md-center mt-3'> 
       {!user ? (
-        <Col md={5}>
+        <Col>
           <LoginView onLoggedIn={(user) => setUser(user)} />
-          or
           <SignupView />
         </Col>
       ) : selectedMovie ? (
@@ -64,7 +63,7 @@ export const MainView = () => {
         />
       </Col>
       ) : movies.length === 0 ? (
-        <div>The list is empty!</div>
+        <div>Opps! The list is empty!</div>
       ) : (
         <>
           {movies.map((movie) => (
@@ -83,4 +82,3 @@ export const MainView = () => {
     </Row>
 );
 };
-  
