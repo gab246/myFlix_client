@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 
 export const MovieCard = ({ movie, onMovieClick }) => {
   return (
-    <Card>
+    <Card className='h-100'>
       <Card.Img variant='top' src={movie.image} />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
@@ -26,9 +26,9 @@ MovieCard.propTypes = {
     }).isRequired,
     director: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      birth: PropTypes.number.isRequired,
       bio: PropTypes.string.isRequired,
+      birth: PropTypes.string.isRequired,
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
-  }).isRequired,
+    onMovieClick: PropTypes.func
+  })
   };
