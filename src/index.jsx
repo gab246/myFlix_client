@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 const App = () => {
   return (
     <Container>
-      <MainView />;
+      <MainView />
     </Container>
   );
 };
