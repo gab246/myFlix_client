@@ -120,32 +120,6 @@ export const MainView = () => {
             );
           };
 
-//             )}}
 
 
-
-//           )}}>
-//             </> : selectedMovie ? (
-      
-//       ) : movies.length === 0 ? (
-//         <div>Opps! The list is empty!</div>
-//       ) : (
-//         <>
-//           {movies.map((movie) => (
-//             <Col className='mb-4' key={movie.id} md={3}>
-//             <MovieCard
-//               key={movie.id}
-//               movie={movie}
-//               onMovieClick={(newSelectedMovie) => {
-//                 setSelectedMovie(newSelectedMovie);
-//               }}
-//             />
-//             </Col>
-//           ))}
-//           <Button onClick={() => {setUser(null); setToken(null); localStorage.clear(); }} className='mt-5 mb-5' variant='primary' > Logout </Button>
-//         </>
-//       )}
-//     </Row>
-// );
-// };
 
