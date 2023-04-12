@@ -45,6 +45,9 @@ export const MovieView = ({ movies }) => {
         <span>{movie.director.birth} </span>
       </div>
       <Link to={`/`}>
+        <button className='fav-button'>Add to Favorites</button>
+      </Link>
+      <Link to={`/`}>
         <button className='back-button'>Back</button>
       </Link>
     </div>
