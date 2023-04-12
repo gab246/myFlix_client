@@ -48,6 +48,9 @@ export const MovieView = ({ movies }) => {
         <button className='fav-button'>Add to Favorites</button>
       </Link>
       <Link to={`/`}>
+        <button className='remove-button'>Remove from Favorites</button>
+      </Link>
+      <Link to={`/`}>
         <button className='back-button'>Back</button>
       </Link>
     </div>
