@@ -44,10 +44,10 @@ export const MovieView = ({ movies }) => {
         <span>Birth Year: </span>
         <span>{movie.director.birth} </span>
       </div>
-      <Link to={`/`}>
+      <Link to={`/profile`}>
         <button className='fav-button'>Add to Favorites</button>
       </Link>
-      <Link to={`/`}>
+      <Link to={`/profile`}>
         <button className='remove-button'>Remove from Favorites</button>
       </Link>
       <Link to={`/`}>
