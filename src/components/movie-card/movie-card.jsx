@@ -10,7 +10,7 @@ export const MovieCard = ({ movie }) => {
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
-          <Button variant='link'>view</Button>
+          <Button variant='secondary'>view</Button>
           </Link>
         </Card.Body>
     </Card>
