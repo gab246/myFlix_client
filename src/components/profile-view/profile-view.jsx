@@ -36,5 +36,73 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
     </Col>
   </Col>
             
-       
+        <Col md={6}>
+          <Card className="mt-5 mb-5">
+            <Card.Body>
+              <Card.Title>Update Account Information</Card.Title>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group>
+                      <Form.Group className="mt-4 mb-4">
+                        <Form.Label>Username: </Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                            minLength="6"
+                            required
+                            className="bg-light"
+                            />
+                       </Form.Group>
+
+                      <Form.Group className="mt-4 mb-4">
+                        <Form.Label>Password: </Form.Label>
+                          <Form.Control
+                            type="password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            minLength="6"
+                            required
+                            className="bg-light"
+                          />
+                      </Form.Group>
+
+                      <Form.Group className="mt-4 mb-4">
+                        <Form.Label>Email: </Form.Label>
+                          <Form.Control 
+                            type="email" 
+                            value={email} 
+                            onChange={e => setEmail(e.target.value)}
+                            required
+                            className="bg-light" />
+                      </Form.Group>
+
+                      <Form.Group className="mb-4">
+                        <Form.Label>Date of Birth: </Form.Label>
+                          <Form.Control
+                            type="date" 
+                            value={birthday}
+                            onChange={e => setBirthday(e.target.value)}
+                            required 
+                            className="bg-light" />
+                      </Form.Group>
+                      </Form.Group>
+                            <Button className="mt-3" variant="primary" type="submit">SUBMIT</Button>
+                        </Form>
+                    </Card.Body>
+                </Card>
+            </Col>
+         
+    
+            <Col md={6}>
+              <Card className="mb-4">
+                <Card.Body>
+                    <Card.Title>Delete Account</Card.Title>
+                      <p>Do you wish to delete your account?</p>
+                 <Button variant="danger" onClick={() => {if (confirm("Are you sure you want to delete your account?")) 
+                      deleteAccount();
+                    }}>DELETE</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+        </>
       )
