@@ -3,7 +3,49 @@ import { Card, Col, Form, Button } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
 export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthday, setBirthday] = useState("");
 
+  let favoriteMovies = movies.filter(movie => user.FavoriteMovies.includes(movie._id));
+    
+  const handleSubmit = event => {
+    event.preventDefault();
+
+  const data = {
+    username,
+    password,
+    email,
+    birthday
+ }
+
+  fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    })
+        .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+                alert("failed");
+                return false;
+            }
+        })
+        .then(user => {
+            if (user) {
+              alert("Your account information has been updated!");
+              updateUser(user);
+            }
+        })
+        .catch(e => {
+          alert(e);
+        });
+    }
 
     return (
         <>
