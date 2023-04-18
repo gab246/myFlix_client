@@ -14,6 +14,7 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
+  const [viewMovies, setViewMovies] = useState(movies);
 
   useEffect(() => {
     if (!token) {
@@ -47,12 +48,23 @@ export const MainView = () => {
       });
   }, [token]);
 
+  const updateUser = (user) => {
+    setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  useEffect(() => {
+    setViewMovies(movies);
+  }, [movies]);
+  
   return (
     <BrowserRouter>
       <NavigationBar
         user={user}
         onLoggedOut={() => {
           setUser(null);
+          setToken(null);
+          localStorage.clear();
         }}
       />
       <Row className="justify-content-md-center mt-3">
@@ -79,7 +91,31 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
+                    <LoginView onLoggedIn={(user, token) => { 
+                      setUser(user);
+                      setToken(token);
+                    }}
+                    />
+                  </Col>
+                )}
+              </>
+            }
+          />
+            <Route
+            path="/profile"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <Col md={12}>
+                    <ProfileView  user={user} token={token} movies={movies} onLoggedOut={() => { 
+                      setUser(null); 
+                      setToken(null); 
+                      localStorage.clear();
+                    }} 
+                      updateUser={updateUser}
+                      />
                   </Col>
                 )}
               </>
@@ -95,7 +131,7 @@ export const MainView = () => {
                   <div>Opps! The list is empty!</div>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView movies={movies} user={user} token={token} updateUser={updateUser}/>
                   </Col>
                 )}
               </>
@@ -108,12 +144,12 @@ export const MainView = () => {
                 {!user ? (
                   <Navigate to="/login" replace />
                 ) : movies.length === 0 ? (
-                  <div>Opps! The list is empty!</div>
+                  <div>Opps, the list is empty! Please wait. Loading data from API.</div>
                 ) : (
                   <>
-                    {movies.map((movie) => (
-                      <Col className="mb-4" key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
+                    {viewMovies.map(movie => (
+                      <Col className="mb-4" key={movie._id} md={3}>
+                        <MovieCard movie={movie} user={user} updateUser={updateUser} />
                       </Col>
                     ))}
                   </>
@@ -121,20 +157,7 @@ export const MainView = () => {
               </>
             }
           />
-          <Route
-            path="/profile"
-            element={
-              <>
-                {!user ? (
-                  <Navigate to="/login" replace />
-                ) : (
-                  <Col md={12}>
-                    <ProfileView />
-                  </Col>
-                )}
-              </>
-            }
-          />
+        
         </Routes>
       </Row>
     </BrowserRouter>
