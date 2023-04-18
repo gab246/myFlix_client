@@ -3,9 +3,41 @@ import { useParams } from "react-router"
 import { useEffect, useState } from "react";
 import { Button, Col } from "react-bootstrap";
 
-export const MovieView = ({ movies }) => {
-    const { movieId } = useParams();
-    const movie = movies.find(m => m.id === movieId);
+export const MovieView = ({ movies, user, token, updateUser }) => {
+  const { movieId } = useParams();
+  const movie = movies.find(m => m.id === movieId);
+
+  const [isFavorite, setIsFavorite] = useState(user.FavoriteMovies.includes(movie.id));
+
+  useEffect(() => {
+      setIsFavorite(user.FavoriteMovies.includes(movie.id));
+  }, [movieId])
+
+  const addFavorite = () => {
+      fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(response => {
+          if (response.ok) {
+              return response.json();
+          } else {
+              alert("Failed");
+              return false;
+          }
+      })
+      .then(user => {
+          if (user) {
+              alert(`Good choice! '${movie.title} was added to your favorites`);
+              setIsFavorite(true);
+              updateUser(user);
+          }
+      })
+      .catch(e => {
+          alert(e);
+      });
+  }
+
 
    
 
