@@ -46,7 +46,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
           alert(e);
         });
     }
-    
+
     const deleteAccount = () => {
       fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}`, {
         method: "DELETE",
@@ -165,4 +165,4 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
               </Card>
             </Col>
         </>
-      )
+)}
