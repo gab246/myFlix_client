@@ -38,8 +38,30 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
       });
   }
 
-
-   
+  const removeFavorite = () => {
+    fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            alert("Failed");
+            return false;
+        }
+    })
+    .then(user => {
+        if (user) {
+            alert(`'${movie.title}' has been deleted from your favorites`);
+            setIsFavorite(false);
+            updateUser(user);
+        }
+    })
+    .catch(e => {
+        alert(e);
+    });
+}
 
     return (
           
