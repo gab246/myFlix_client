@@ -74,50 +74,47 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
         </section>
         <section>
           <h5>Title: </h5>
-              <p>{movie.title}</p>
-            </section>
-            <section>
-              <h5>Description: </h5>
-              <p>{movie.description}</p>
-            </section>
-            <section>
-              <h5>Genre </h5>
-            </section>
-            <section>
-              <h5>Name: </h5>
-              <p>{movie.genre.name}</p>
-            </section>
-            <section>
-              <h5>Description:</h5>
-              <p>{movie.genre.description}</p>
-            </section>
-            <section>
-              <h5>Director </h5>
-            </section>
-            <section>
-              <h5>Name: </h5>
-              <p>{movie.director.name}</p>
-            </section>
-            <section>
-              <h5>Bio: </h5>
-              <p>{movie.director.bio} </p>
-            </section>
-            <section>
-              <h5>Birth Year: </h5>
-              <p>{movie.director.birth} </p>
-            </section>
+          <p>{movie.title}</p>
+        </section>
+        <section>
+          <h5>Description: </h5>
+          <p>{movie.description}</p>
+        </section>
+        <section>
+          <h5>Genre </h5>
+        </section>
+        <section>
+          <h5>Name: </h5>
+          <p>{movie.genre.name}</p>
+        </section>
+        <section>
+          <h5>Description:</h5>
+          <p>{movie.genre.description}</p>
+        </section>
+        <section>
+          <h5>Director </h5>
+        </section>
+        <section>
+          <h5>Name: </h5>
+          <p>{movie.director.name}</p>
+        </section>
+        <section>
+          <h5>Bio: </h5>
+          <p>{movie.director.bio}</p>
+        </section>
+        <section>
+          <h5>Birth Year: </h5>
+          <p>{movie.director.birth}</p>
+        </section>
             
-            <Link to={`/`}>
-              <Button className='back-button' variant="secondary">Back</Button>
-            </Link>
-              { isFavorite 
+        <Link to={`/`}>
+          <Button className='back-button' variant="secondary">Back</Button>
+        </Link>
+            { isFavorite 
             ? (<Button onClick={removeFavorite} variant="secondary">Remove from Favorites</Button>)
               : (<Button  onClick={addFavorite} variant="secondary">Add to Favorites</Button>)
             }
-        
-          </Col>
-        
-         
-        );
-      };
+        </Col>
+      );
+    };
       
