@@ -16,7 +16,9 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
   const addFavorite = () => {
       fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
           method: "POST",
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { 
+            Authorization: `Bearer ${token}` 
+          }
       })
       .then(response => {
           if (response.ok) {
@@ -28,7 +30,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
       })
       .then(user => {
           if (user) {
-              alert(`Good choice! '${movie.title} was added to your favorites`);
+              alert(`Good choice! ${movie.title} was added to your favorites`);
               setIsFavorite(true);
               updateUser(user);
           }
@@ -41,7 +43,9 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
   const removeFavorite = () => {
     fetch(`https://desolate-sierra-27780.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { 
+          Authorization: `Bearer ${token}` 
+        }
     })
     .then(response => {
         if (response.ok) {
@@ -53,7 +57,7 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
     })
     .then(user => {
         if (user) {
-            alert(`'${movie.title}' has been deleted from your favorites`);
+            alert(`${movie.title} has been removed from your favorites`);
             setIsFavorite(false);
             updateUser(user);
         }
@@ -64,13 +68,12 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 }
 
     return (
-          
-            <Col>
-            <section>
-              <img src={movie.image} />
-            </section>
-            <section>
-              <h5>Title: </h5>
+      <Col>
+        <section>
+          <img src={movie.image} />
+        </section>
+        <section>
+          <h5>Title: </h5>
               <p>{movie.title}</p>
             </section>
             <section>
