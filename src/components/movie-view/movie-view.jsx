@@ -108,11 +108,11 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
             </section>
             
             <Link to={`/`}>
-              <Button className='back-button'>Back</Button>
+              <Button className='back-button' variant="secondary">Back</Button>
             </Link>
               { isFavorite 
-            ? (<Button onClick={removeFavorite}>Remove from Favorites</Button>)
-              : (<Button  onClick={addFavorite}>Add to Favorites</Button>)
+            ? (<Button onClick={removeFavorite} variant="secondary">Remove from Favorites</Button>)
+              : (<Button  onClick={addFavorite} variant="secondary">Add to Favorites</Button>)
             }
         
           </Col>
