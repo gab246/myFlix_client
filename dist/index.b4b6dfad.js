@@ -47411,7 +47411,7 @@ const ProfileView = ({ user , token , movies , onLoggedOut , updateUser  })=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         md: 12,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                             children: "Your Favorite Movies"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
