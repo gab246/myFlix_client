@@ -2,16 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import './navigation-bar.scss';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
-    <Navbar bg="light">
+    <Navbar  className='nav-bar'>
       <Container>
-        <Navbar.Brand as={Link} to='/'>
-            Moovies
+        <Navbar.Brand as={Link} to='/' className='logo'>
+            MOOvies
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse className="basic-navbar-nav">
             <Nav className="me-auto">
               {!user && (
               <>
