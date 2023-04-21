@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router"
 import { useEffect, useState } from "react";
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Container } from "react-bootstrap";
+import "./movie-view.scss";
 
 export const MovieView = ({ movies, user, token, updateUser }) => {
   const { movieId } = useParams();
@@ -68,53 +69,55 @@ export const MovieView = ({ movies, user, token, updateUser }) => {
 }
 
     return (
+    <Container>
       <Col>
-        <section>
-          <img src={movie.image} />
-        </section>
-        <section>
-          <h5>Title: </h5>
-          <p>{movie.title}</p>
-        </section>
-        <section>
-          <h5>Description: </h5>
-          <p>{movie.description}</p>
-        </section>
-        <section>
-          <h5>Genre </h5>
-        </section>
-        <section>
-          <h5>Name: </h5>
-          <p>{movie.genre.name}</p>
-        </section>
-        <section>
-          <h5>Description:</h5>
-          <p>{movie.genre.description}</p>
-        </section>
-        <section>
-          <h5>Director </h5>
-        </section>
-        <section>
-          <h5>Name: </h5>
-          <p>{movie.director.name}</p>
-        </section>
-        <section>
-          <h5>Bio: </h5>
-          <p>{movie.director.bio}</p>
-        </section>
-        <section>
-          <h5>Birth Year: </h5>
-          <p>{movie.director.birth}</p>
-        </section>
-            
-        <Link to={`/`}>
+        <Link to={`/`} className='buttons'>
           <Button className='back-button' variant="secondary">Back</Button>
         </Link>
             { isFavorite 
-            ? (<Button onClick={removeFavorite} variant="secondary">Remove from Favorites</Button>)
-              : (<Button  onClick={addFavorite} variant="secondary">Add to Favorites</Button>)
+            ? (<Button onClick={removeFavorite} className='remove_fav' variant="secondary">Remove from Favorites</Button>)
+              : (<Button  onClick={addFavorite} className='add_fav' variant="secondary">Add to Favorites</Button>)
             }
-        </Col>
-      );
-    };
+            </Col>
+        <section>
+          <img src={movie.image}  className='image'/>
+        </section>
+        <section>
+          <h2>Title: </h2>
+          <p>{movie.title}</p>
+        </section>
+        <section>
+          <h3>Description: </h3>
+          <p>{movie.description}</p>
+        </section>
+        <section>
+          <h3>Genre </h3>
+        </section>
+        <section>
+          <h3>Name: </h3>
+          <p>{movie.genre.name}</p>
+        </section>
+        <section>
+          <h3>Description:</h3>
+          <p>{movie.genre.description}</p>
+        </section>
+        <section>
+          <h3>Director </h3>
+        </section>
+        <section>
+          <h3>Name: </h3>
+          <p>{movie.director.name}</p>
+        </section>
+        <section>
+          <h3>Bio: </h3>
+          <p>{movie.director.bio}</p>
+        </section>
+        <section>
+          <h3>Birth Year: </h3>
+          <p>{movie.director.birth}</p>
+        </section>
+            
+      </Container>
+    );
+  };
       
