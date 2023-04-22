@@ -7,7 +7,7 @@ export const MovieCard = ({ movie }) => {
   return (
     <Card className='h-100' >
       <Card.Img variant='top' src={movie.image} />
-        <Card.Body>
+        <Card.Body className='d-flex flex-column justify-content-end'>
           <Card.Title>{movie.title}</Card.Title>
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
           <Button variant='secondary'>view</Button>
