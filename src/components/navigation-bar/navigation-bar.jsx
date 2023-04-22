@@ -3,8 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './navigation-bar.scss';
+import { Form, Button } from 'react-bootstrap'
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, handleSearch }) => {
   return (
     <Navbar  className='nav-bar'>
       <Container>
@@ -13,7 +14,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className='ms-auto gap-2'>
               {!user && (
               <>
                 <Nav.Link as={Link} to='/login'>
@@ -35,6 +36,14 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
                 <Nav.Link onClick={onLoggedOut}>
                   logout
                 </Nav.Link>
+                <Form>
+                  <Form.Control
+                  type="search"
+                  placeholder="search by title"
+                  aria-label="Search"
+                  onChange={handleSearch}
+            />
+                </Form>
               </>
             )}
           </Nav>
