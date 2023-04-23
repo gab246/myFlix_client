@@ -67,7 +67,7 @@ export const ProfileView = ({ user, token, movies, onLoggedOut, updateUser }) =>
 
     return (
         <>
-          <h1>Account Details</h1>
+          <h1>Account Information</h1>
 
           <Col md={6}>
             <Card>
