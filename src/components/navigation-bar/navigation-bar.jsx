@@ -3,14 +3,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import './navigation-bar.scss';
-import { Form, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 export const NavigationBar = ({ user, onLoggedOut, handleSearch }) => {
   return (
-    <Navbar  className='nav-bar'>
+    <Navbar  className='nav-bar' expand='sm'>
       <Container>
         <Navbar.Brand as={Link} to='/' className='logo'>
-            MOOvies
+            MOOVIES
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="basic-navbar-nav">
