@@ -27,6 +27,7 @@ Movie Information
 Movie List
 - Add favourite movies to list
 - Delete movies from list
+- Search movies by title on the main view
 
 # Technologies Used
 - React
