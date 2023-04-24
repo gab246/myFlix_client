@@ -5,6 +5,10 @@ html body, .everything-container {
   line-height: 1.9;
 }
 
+.card {
+  box-shadow: 3px 3px 10px #da3158;
+}
+
 .image {
   border-radius: 20px;
   margin: 50px auto;
@@ -26,6 +30,11 @@ html body, .everything-container {
   font-family: Bebas Neue, sans-serif;
   color: #da3158 !important;
   font-size: 35px !important;
+}
+
+.nav-bar {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 :root {
