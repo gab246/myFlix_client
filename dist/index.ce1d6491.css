@@ -1,5 +1,40 @@
-.my-flix {
-  color: #00f;
+html body, .everything-container {
+  color: #151108;
+  background: #7fa0c1;
+  font-family: Nunito Sans, sans-serif;
+  line-height: 1.9;
+}
+
+.card {
+  box-shadow: 3px 3px 10px #da3158;
+}
+
+.image {
+  border-radius: 20px;
+  margin: 50px auto;
+  display: block;
+  box-shadow: 4px 4px 10px #da3158;
+}
+
+.buttons {
+  margin: auto;
+  display: block;
+}
+
+.back-button {
+  margin-bottom: 15px;
+}
+
+.logo {
+  letter-spacing: 6px;
+  font-family: Bebas Neue, sans-serif;
+  color: #da3158 !important;
+  font-size: 35px !important;
+}
+
+.nav-bar {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 :root {

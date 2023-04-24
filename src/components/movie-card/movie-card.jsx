@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './movie-card.scss';
 
 export const MovieCard = ({ movie }) => {
   return (
     <Card className='h-100' >
       <Card.Img variant='top' src={movie.image} />
-        <Card.Body>
+        <Card.Body className='d-flex flex-column justify-content-end'>
           <Card.Title>{movie.title}</Card.Title>
           <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
           <Button variant='secondary'>view</Button>
