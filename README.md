@@ -4,6 +4,7 @@
 Moovies was created to encourage and inspire children to learn about the films 
 they are watching. They have the opportunity to access information about different movies from a range of genres.
 
+<img width="1366" alt="moovies" src="https://user-images.githubusercontent.com/119339137/233875520-02dbaf7a-9d55-47d1-8f07-8503efe3daa6.png">
 
 
 # Features
